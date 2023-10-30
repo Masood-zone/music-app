@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Artist from "./pages/discover/Artist";
+import Podcast from "./pages/discover/Podcast";
+import AudioBook from "./pages/discover/AudioBook";
+import Album from "./pages/discover/Album";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="artist" element={<Artist />} />
+          <Route path="album" element={<Album />} />
+          <Route path="podcast" element={<Podcast />} />
+          <Route path="audiobook" element={<AudioBook />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
